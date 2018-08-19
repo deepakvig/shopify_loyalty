@@ -1,7 +1,7 @@
 class HomeController < ShopifyApp::AuthenticatedController
   def index
     # Show all customers who have paid for their orders
-    @customers = shop.try(:customer_details, [])
+    @customers = shop.try(:customer_details) || []
   end
 
   private
