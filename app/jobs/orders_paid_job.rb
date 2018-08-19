@@ -5,9 +5,9 @@ class OrdersPaidJob < ActiveJob::Base
     shop.with_shopify_session do
       # Customer Details
       customer_id = webhook[:customer][:id] # Customer ID from Shopify Order details
-      customer_email = webhook[:customer][:id] # Customer Email from Shopify Order details
-      customer_fname = webhook[:customer][:id] # Customer FirstName from Shopify Order details
-      customer_lname = webhook[:customer][:id] # Customer LastName from Shopify Order details
+      customer_email = webhook[:customer][:email] # Customer Email from Shopify Order details
+      customer_fname = webhook[:customer][:first_name] # Customer FirstName from Shopify Order details
+      customer_lname = webhook[:customer][:last_name] # Customer LastName from Shopify Order details
       #Order Details
       order_total = webhook[:total_price] # Order Total
       order_number = webhook[:id] # Order ID from Shopify
