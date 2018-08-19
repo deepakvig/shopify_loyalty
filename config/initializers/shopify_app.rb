@@ -1,7 +1,10 @@
+# Get the config key and secret from shopify_app.yml
+shopify_app_config = Rails.application.config_for(:shopify_app)
+
 ShopifyApp.configure do |config|
   config.application_name = "My Shopify App"
-  config.api_key = "74dea5f2db288a6d9a8489189a250c7a"
-  config.secret = "564a9da8b7355450e70aee4f3e0d8cbb"
+  config.api_key = shopify_app_config.fetch('api_key')
+  config.secret = shopify_app_config.fetch('secret')
   config.scope = "read_customers, read_orders, read_products"
   config.embedded_app = true
   config.after_authenticate_job = false

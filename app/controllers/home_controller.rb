@@ -7,7 +7,10 @@ class HomeController < ShopifyApp::AuthenticatedController
   private
 
   def shop
+    # Return nil in case session is not present
     return unless shop_session.present?
+
+    # Get shop details from the database based on session url
     @shop ||= Shop.find_by(shopify_domain: shop_session.url)
   end
 end

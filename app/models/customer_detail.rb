@@ -4,6 +4,7 @@ class CustomerDetail < ApplicationRecord
 
   validates_presence_of :email, :first_name, :last_name
 
+  # Get details related to earned points for each Customer
   def points_earned
     loyalty_points.sum(:points).floor
   end
