@@ -6,4 +6,7 @@ ShopifyApp.configure do |config|
   config.embedded_app = true
   config.after_authenticate_job = false
   config.session_repository = Shop
+  config.webhooks = [
+    {topic: 'orders/paid', address: 'https://infinite-shelf-30866.herokuapp.com/webhooks/orders_paid', format: 'json'},
+  ]
 end
