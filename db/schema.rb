@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180819121346) do
+ActiveRecord::Schema.define(version: 20180819123218) do
 
   create_table "customer_details", force: :cascade do |t|
     t.string "shopify_customer_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20180819121346) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_customer_details_on_shop_id"
+  end
+
+  create_table "loyalty_points", force: :cascade do |t|
+    t.string "order_number"
+    t.float "points"
+    t.integer "customer_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_detail_id"], name: "index_loyalty_points_on_customer_detail_id"
   end
 
   create_table "shops", force: :cascade do |t|
