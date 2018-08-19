@@ -36,6 +36,9 @@ gem 'execjs'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 
+# Shopify App gem
+gem 'shopify_app'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
